@@ -57,7 +57,6 @@ namespace HangMan
                         {
                             hiddenArr[i] = spaceChar;
                         }
-                        
                     }
                     secretWord = GetRandomWord(secretWord);
                     val = Console.ReadLine();
@@ -153,7 +152,9 @@ namespace HangMan
                             val = Console.ReadLine();
                             Console.Clear();
                             lives = 12;
+
                             
+
                         }
                             if (val == "0")
 
@@ -167,6 +168,8 @@ namespace HangMan
                 
             }
             while (lives > 0);
+
+            Console.WriteLine("- Game Over -");
 
             Environment.Exit(0);
 
