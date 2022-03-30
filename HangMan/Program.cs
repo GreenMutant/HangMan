@@ -34,8 +34,8 @@ namespace HangMan
             char lineChar;
             char spaceChar;
             char[] hiddenArr = new char[19];
-
             StringBuilder incorrectChars = new StringBuilder(10).AppendLine();
+
 
             do
                 {
@@ -58,6 +58,10 @@ namespace HangMan
                             hiddenArr[i] = spaceChar;
                         }
                     }
+
+                    incorrectChars.Clear();
+                    
+
                     secretWord = GetRandomWord(secretWord);
                     val = Console.ReadLine();
                     lives--;
