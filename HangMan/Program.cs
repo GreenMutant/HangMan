@@ -144,7 +144,7 @@ namespace HangMan
                         Console.WriteLine("write Word:");
                         val = Console.ReadLine();
 
-                        if (val != secretWord)
+                        if ((val != secretWord) && (lives > 1))
                         {
                             Console.WriteLine("Incorrect - Try Again (Enter)");
                             val = Console.ReadLine();
@@ -167,13 +167,20 @@ namespace HangMan
                         }
                     }
 
-                    lives--;
+                if (lives == 1)
+                {
+                Console.WriteLine("Game Over - New Game (enter)");
+                    val = Console.ReadLine();
+                    Console.Clear();
+                    lives = 12;
+                }
+                lives--;
                 } 
                 
             }
             while (lives > 0);
 
-            Console.WriteLine("- Game Over -");
+            
 
             Environment.Exit(0);
 
