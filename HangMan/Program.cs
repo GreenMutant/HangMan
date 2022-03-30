@@ -101,6 +101,7 @@ namespace HangMan
                         if (incorrect.Contains(val))
                         {
                             Console.WriteLine("Character Allready Tried - Try Again (Enter)");
+                            val = Console.ReadLine();
                         }
                         if (secretWord.Contains(val))
                         {
@@ -113,6 +114,7 @@ namespace HangMan
                             character = char.Parse(val);
                             hiddenArr[arrNR] = character;
                             Console.WriteLine("Exists - Try Again (Enter)");
+                            val = Console.ReadLine();
 
                             lives++;
                         }
@@ -121,6 +123,7 @@ namespace HangMan
                             incorrectChars.Append(val + " ");
                             val = null;
                             Console.WriteLine("Incorrect - Try Again (Enter)");
+                            val = Console.ReadLine();
                         }
                     }
 
@@ -132,6 +135,7 @@ namespace HangMan
                         if (val != secretWord)
                         {
                             Console.WriteLine("Incorrect - Try Again (Enter)");
+                            val = Console.ReadLine();
                         }
 
                         if (val == secretWord)
@@ -143,6 +147,7 @@ namespace HangMan
                             
                         }
                             if (val == "0")
+
                         {
                             lives = 0;
                         }
@@ -150,6 +155,7 @@ namespace HangMan
 
                     lives--;
                 } 
+                
             }
             while (lives > 0);
 
@@ -158,3 +164,4 @@ namespace HangMan
         }
     }
 }
+
