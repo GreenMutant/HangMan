@@ -24,6 +24,7 @@ namespace HangMan
             static void Main(string[] args)
         {
             int lives = 11;
+            bool exist = false;
             string val;
             string line = "-";
             string space = " ";
@@ -102,8 +103,11 @@ namespace HangMan
                         {
                             Console.WriteLine("Character Allready Tried - Try Again (Enter)");
                             val = Console.ReadLine();
+                            exist = true;
+                            lives++;
                         }
-                        if (secretWord.Contains(val))
+                        
+                        if (secretWord.Contains(val) && (exist == false))
                         {
                             
                             int arrNR = secretWord.IndexOf(val);
@@ -118,13 +122,18 @@ namespace HangMan
 
                             lives++;
                         }
+
                         else
                         {
-                            incorrectChars.Append(val + " ");
-                            val = null;
-                            Console.WriteLine("Incorrect - Try Again (Enter)");
-                            val = Console.ReadLine();
+                            if (exist == false)
+                            {
+                                incorrectChars.Append(val + " ");
+                                val = null;
+                                Console.WriteLine("Incorrect - Try Again (Enter)");
+                                val = Console.ReadLine();
+                            }
                         }
+                        exist = false;
                     }
 
                     if (val == "w")
