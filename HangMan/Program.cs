@@ -5,9 +5,9 @@ namespace HangMan
 {
     class Program
     {
-        
+
         public static string GetRandomWord(string randomWord)
-        { 
+        {
             string[] secretArr = new String[10]
                {
                     "shockingly", "humanizers", "hypocrites" , "brutalized", "blueprints",
@@ -21,7 +21,7 @@ namespace HangMan
 
             return randomWord;
         }
-            static void Main(string[] args)
+        static void Main(string[] args)
         {
             int lives = 11;
             bool exist = false;
@@ -38,7 +38,7 @@ namespace HangMan
 
 
             do
-                {
+            {
                 if (lives > 10)
                 {
                     Console.WriteLine("HangMan 1.0");
@@ -60,7 +60,7 @@ namespace HangMan
                     }
 
                     incorrectChars.Clear();
-                    
+
 
                     secretWord = GetRandomWord(secretWord);
                     val = Console.ReadLine();
@@ -77,7 +77,7 @@ namespace HangMan
                     {
                         Console.WriteLine("\n");
                     }
-                        if (lives < 10)
+                    if (lives < 10)
                     {
                         Console.WriteLine("incorrect characters: " + incorrectChars.ToString());
                     }
@@ -91,15 +91,15 @@ namespace HangMan
 
                     Console.WriteLine("Character(c) - Word(w) - Exit (0):");
                     val = Console.ReadLine();
-                    
+
                     if (val == "0")
                     {
                         lives = 0;
                     }
 
                     if (val == "c")
-                    { 
-                        Console.WriteLine("choose Character:"); 
+                    {
+                        Console.WriteLine("choose Character:");
                         val = Console.ReadLine();
                         incorrect = incorrectChars.ToString();
                         if (incorrect.Contains(val))
@@ -109,10 +109,10 @@ namespace HangMan
                             exist = true;
                             lives++;
                         }
-                        
+
                         if (secretWord.Contains(val) && (exist == false))
                         {
-                            
+
                             int arrNR = secretWord.IndexOf(val);
                             if (arrNR > 0)
                             {
@@ -157,30 +157,30 @@ namespace HangMan
                             Console.Clear();
                             lives = 12;
 
-                            
+
 
                         }
-                            if (val == "0")
+                        if (val == "0")
 
                         {
                             lives = 0;
                         }
                     }
 
-                if (lives == 1)
-                {
-                Console.WriteLine("Game Over - New Game (enter)");
-                    val = Console.ReadLine();
-                    Console.Clear();
-                    lives = 12;
+                    if (lives == 1)
+                    {
+                        Console.WriteLine("Game Over - New Game (enter)");
+                        val = Console.ReadLine();
+                        Console.Clear();
+                        lives = 11;
+                    }
+                    lives--;
                 }
-                lives--;
-                } 
-                
+
             }
             while (lives > 0);
 
-            
+            // The end
 
             Environment.Exit(0);
 
